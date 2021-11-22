@@ -11,13 +11,13 @@ public class PlayerControler : MonoBehaviour
     public float xRange = 16f;
     public float menosxRange = -16f;
 
-    // Start is called before the first frame update
+    public GameObject projectilePrefab;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
@@ -36,6 +36,11 @@ public class PlayerControler : MonoBehaviour
         {
             transform.position = new Vector3(menosxRange, transform.position.y, transform.position.z);
 
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation); 
         }
 
     }
